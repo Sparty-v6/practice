@@ -42,7 +42,7 @@ int main(){
         //     cout<<a[i] << " ";
         // }
 
-        cout<<endl;
+        // cout<<endl;
         // cout<<"Time "<<time;
         cout<<time;
         cout<<endl;
