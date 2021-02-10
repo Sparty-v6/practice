@@ -2,7 +2,6 @@
 using namespace std;
 
 int main(){
-    int n;
-    cin>>n;
+    cout << 00 - 00;
     return 0;
 }
