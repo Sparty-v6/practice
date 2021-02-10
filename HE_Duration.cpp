@@ -36,10 +36,23 @@ int main(){
         // else if(MM > 59){
         //     HH++;
         // }
-        else if(SH <= EH){ //TODO:
-            HH = (abs)(SH - EH);
-            if(HH <= 6 ){
+        else if(SH <= EH){ //TODO: 
+            // HH = (abs)(SH - EH);
+            // if(HH <= 6 ){
+            //     HH--;
+            // }
+            if(MM > 30){
+                HH = (abs)(SH - EH);
                 HH--;
+                // cout<<"HH--\n";
+            }
+            else if(MM < 30 && MM >0){
+                HH = (abs)(SH - EH);
+                HH++;
+                // cout<<"HH++\n";
+            }
+            else if(MM == 0){
+                HH = (abs) (SH-EH);
             }
         }
         cout<<HH << " "<<MM<<endl;
