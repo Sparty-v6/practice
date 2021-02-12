@@ -2,3 +2,5 @@
 /.cph
 /*.exe
 /*.bin
+/input.txt
+/output.txt
