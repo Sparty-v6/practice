@@ -16,7 +16,13 @@ int main(){
     while(t--){
         int n;
         cin>>n;
-        cout<<sumOfDigits(n)<<endl;
+        int s;
+        cin>>s;
+        int sum = sumOfDigits(s);
+        if(sum%2 == 0 && n%2 != 0){
+            cout<<"committed\n";
+        }else cout<<"single\n";
+
     }
     return 0;
 }

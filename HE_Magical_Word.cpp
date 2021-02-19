@@ -1,32 +1,55 @@
 #include<bits/stdc++.h>
 using namespace std;
+const int N = 130;
+int primes[N];
 
-bool isPrime(int n){
-    for(int i = 2; i*i<n; i++){
-        if(n%i ==0)
-            return false;
-    }
-    return true;
+int isPrimeNumber(int n) {
+   bool isPrime = true;
+
+   for(int i = 2; i <= n/2; i++) {
+      if (n%i == 0) {
+         isPrime = false;
+         break;
+      }
+   }  
+   return isPrime;
 }
 
 int nearPrime(int num){
-    int nextPrime = num;
+    int nextPrime = num + 1;
+    int prevPrime = num - 1;
     bool gotcha = false;
     while(!gotcha){
-        nextPrime++;
-        if(isPrime(nextPrime))
+        if(!isPrimeNumber(nextPrime))
+            nextPrime++;
+        if(!isPrimeNumber(prevPrime))
+            prevPrime--;
+        if(isPrimeNumber(nextPrime) && isPrimeNumber(prevPrime))
             gotcha = true;
+        cout<<"Next Prime: "<<nextPrime<<endl;
+        cout<<"Prev Prime: "<<prevPrime<<endl;
     }
+    if (num - prevPrime == nextPrime - num)
+        return prevPrime;
     return nextPrime;
 }
 
-string magicalWord(char c){
-    int res = (int) c;
-    int prime = nearPrime(res);
-    
+char magicalWord(char c){
+    int res = (int) c; //converted to it's ascii value
+    int prime = nearPrime(res); //got nearest prime 
+    char ans = (char) prime; //converted that near prime number to ascii charcter
+    return ans;
 }
 
 int main(){
+    bool isPrime;
+    for(int i = 2; i< N; i++){
+        isPrime = isPrimeNumber(i);
+        if(isPrime == true){
+            primes[i] = i;
+            // cout<<i<<" ";
+        }
+    }
     int t;
     cin>>t;
     while(t--){
